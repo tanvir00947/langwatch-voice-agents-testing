@@ -1,0 +1,12 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Audio recordings
+outputs/*.wav
+past_outputs/*.wav

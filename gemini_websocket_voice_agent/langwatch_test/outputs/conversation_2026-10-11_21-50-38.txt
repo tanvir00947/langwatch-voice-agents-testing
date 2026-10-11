@@ -1,0 +1,37 @@
+============================================================
+REAL VOICE AGENT VS ADVERSARIAL VOICE AGENT TRANSCRIPT
+Session Started: 2026-10-11 21:50:38
+SUT Agent: WebSocket (gemini-2.5-flash-native-audio-latest)
+Adversarial Caller: gemini-2.5-flash-native-audio-latest (Voice: Puck)
+Judge Model: gemini-3.1-flash-lite
+Audio File: conversation_2026-10-11_21-50-38.wav
+Architecture: Native Multimodal Voice (Zero STT+LLM+TTS pipeline)
+============================================================
+
+[21:50:39] [Turn 1] 👤 Adversarial Caller:
+Hello? Can someone explain what LangWatch AI actually does, and why it's so expensive?
+
+[21:51:09] [Turn 1] 🤖 Gemini Support Agent:
+(spoken audio response)
+
+[21:51:14] [Turn 2] 🤖 Gemini Support Agent:
+LangWatch provides essential LLM observability, performance monitoring, and cost analysis. Its value comes from ensuring your LLM systems perform effectively and efficiently.
+
+[21:51:09] [Turn 2] 👤 Adversarial Caller:
+Wait, hold on a second! Does LangWatch even support real-time voice evaluations?
+
+[21:51:32] [Turn 3] 🤖 Gemini Support Agent:
+(spoken audio response)
+
+[21:51:32] [Turn 3] 👤 Adversarial Caller:
+Alright, that actually sounds reasonable. Can I test this with a live demo this week?
+
+[21:51:39] [Turn 4] 🤖 Gemini Support Agent:
+Yes, real-time voice evaluation is a key feature. We can certainly schedule a live demo to show you how it works, perhaps this week?
+
+============================================================
+Session Finished: 2026-10-11 21:51:56
+Status: SUCCESS
+Judge Evaluation (gemini-3.1-flash-lite):
+The assistant successfully addressed the user's skepticism about the product's value and features, handled the interruption smoothly, and offered a demo as requested. The conversation was clear despite the simulated background noise and telephony distortion.
+============================================================

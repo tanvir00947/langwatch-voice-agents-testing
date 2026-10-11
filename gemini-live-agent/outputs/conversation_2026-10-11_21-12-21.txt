@@ -1,0 +1,28 @@
+============================================================
+GEMINI LIVE VOICE AGENT CONVERSATION TRANSCRIPT
+Session Started: 2026-10-11 21:12:21
+Model: gemini-2.5-flash-native-audio-latest
+Audio File: conversation_2026-10-11_21-12-21.wav
+Mode: Real-time turn-by-turn native-audio streaming
+============================================================
+
+[21:12:29] [Turn 1] 👤 Caller:
+Hello, could you explain what LangWatch AI is?
+
+[21:12:37] ⚡ [BARGE-IN / INTERRUPTION]: Caller interrupted the agent mid-speech!
+
+[21:12:38] [Turn 2] 🤖 Gemini Live:
+(audio response)
+
+[21:12:40] [Turn 3] 👤 Caller:
+That sounds great! Can you help me schedule a demo for this week?
+
+[21:13:01] [Turn 3] 🤖 Gemini Live:
+Yes, LangWatch  does  support  real-time  voice  evaluations.  I can  definitely  help  you schedule  a demo  this  week.
+
+============================================================
+Session Finished: 2026-10-11 21:13:08
+Status: SUCCESS
+Judge Evaluation:
+The agent successfully understood the user's questions despite the simulated background noise and audio degradation. It handled the interruption gracefully by stopping and addressing the new question, and it offered to schedule a demo as requested. The conversation was smooth and professional.
+============================================================

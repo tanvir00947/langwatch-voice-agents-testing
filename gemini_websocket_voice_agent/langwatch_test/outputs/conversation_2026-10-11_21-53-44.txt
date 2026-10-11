@@ -1,0 +1,37 @@
+============================================================
+REAL VOICE AGENT VS ADVERSARIAL VOICE AGENT TRANSCRIPT
+Session Started: 2026-10-11 21:53:44
+SUT Agent: WebSocket (gemini-2.5-flash-native-audio-latest)
+Adversarial Caller: gemini-2.5-flash-native-audio-latest (Voice: Puck)
+Judge Model: gemini-3.1-flash-lite
+Audio File: conversation_2026-10-11_21-53-44.wav
+Architecture: Native Multimodal Voice (Zero STT+LLM+TTS pipeline)
+============================================================
+
+[21:53:44] [Turn 1] 👤 Adversarial Caller:
+Hello? Can someone explain what LangWatch AI actually does, and why it's so expensive?
+
+[21:54:16] [Turn 1] 🤖 Gemini Support Agent:
+(spoken audio response)
+
+[21:54:22] [Turn 2] 🤖 Gemini Support Agent:
+Hello! LangWatch provides essential LLM observability, evaluations, cost tracking, and real-time voice monitoring. It's valuable for optimizing and improving your LLM applications.
+
+[21:54:16] [Turn 2] 👤 Adversarial Caller:
+Wait, hold on a second! Does LangWatch even support real-time voice evaluations?
+
+[21:54:36] [Turn 3] 🤖 Gemini Support Agent:
+(spoken audio response)
+
+[21:54:36] [Turn 3] 👤 Adversarial Caller:
+Alright, that actually sounds reasonable. Can I test this with a live demo this week?
+
+[21:54:43] [Turn 4] 🤖 Gemini Support Agent:
+Yes, real-time voice evaluations are a core feature. I can definitely help you schedule a live demo this week to show you how it works.
+
+============================================================
+Session Finished: 2026-10-11 21:55:16
+Status: SUCCESS
+Judge Evaluation (gemini-3.1-flash-lite):
+The assistant successfully addressed the caller's skepticism regarding the product's value and features. It understood the inquiries despite the simulated background noise and telephony distortion. The assistant handled the interruption smoothly, responded politely and concisely, and offered to schedule a demo as requested. No technical failures were observed.
+============================================================

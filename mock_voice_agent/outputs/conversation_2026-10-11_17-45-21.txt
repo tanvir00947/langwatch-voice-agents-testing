@@ -1,0 +1,37 @@
+============================================================
+VOICE AGENT CONVERSATION TRANSCRIPT
+Session Started: 2026-10-11 17:45:21
+Audio File: conversation_2026-10-11_17-45-21.wav
+Mode: Real-time turn-by-turn client transcription
+Server sends: Pure Audio only (no server transcript)
+============================================================
+
+[17:45:23] [Turn 1] 👤 Caller:
+please explain langwatch ai
+
+[17:45:43] [Turn 1] 🤖 Agent:
+I apologize, I am having a moment of trouble processing that. Could you please repeat?
+
+[17:45:43] [Turn 2] 👤 Caller:
+(audio spoken)
+
+[17:46:00] ⚡ [BARGE-IN / INTERRUPTION]: Caller interrupted the agent mid-speech!
+
+[17:46:00] [Turn 3] 👤 Caller:
+(audio spoken)
+
+[17:46:34] [Turn 3] 🤖 Agent:
+Not a problem at all. I'm so sorry for the technical hiccup on my end. Please go right ahead, what was it you were asking about? I'm here and ready to help.
+
+[17:46:44] [Turn 4] 👤 Caller:
+Yeah, sorry about that, it's super loud in here with the espresso machine going off. I was just wondering if you could tell me a little bit about what LangWatch AI actually does, and if it's possible for me to book a demo to see it in action?
+
+[17:47:18] [Turn 4] 🤖 Agent:
+Of course. I completely understand. Those espresso machines can be quite noisy. I'd be happy to explain. In short, LangWatch AI is an observability and analytics platform designed specifically for LLM applications. We help teams monitor their AI's performance, track quality, manage costs, and catch hallucinations in real time so you can deploy with confidence. And I would be absolutely delighted to help you get a demo scheduled.
+
+============================================================
+Session Finished: 2026-10-11 17:47:36
+Status: SUCCESS
+Judge Evaluation:
+The assistant successfully handled the noisy environment, understood the user's request, and responded politely. It also handled the interruption gracefully. Although there was an initial failure to process the first request, the assistant recovered well and the overall interaction met the criteria.
+============================================================

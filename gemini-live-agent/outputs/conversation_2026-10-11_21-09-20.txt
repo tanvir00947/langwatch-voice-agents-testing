@@ -1,0 +1,40 @@
+============================================================
+GEMINI LIVE VOICE AGENT CONVERSATION TRANSCRIPT
+Session Started: 2026-10-11 21:09:20
+Model: gemini-2.5-flash-native-audio-latest
+Audio File: conversation_2026-10-11_21-09-20.wav
+Mode: Real-time turn-by-turn native-audio streaming
+============================================================
+
+[21:09:24] [Turn 1] 👤 Caller:
+Hello, could you explain what LangWatch AI is?
+
+[21:09:38] [Turn 1] 🤖 Gemini Live:
+Certainly. LangWatch AI is a platform for monitoring and evaluating language models.
+
+[21:09:38] [Turn 2] 👤 Caller:
+(audio spoken)
+
+[21:09:39] [Turn 2] 🤖 Gemini Live:
+Certainly. LangWatch AI is a platform for monitoring and evaluating language models.
+
+[21:09:40] [Turn 3] 👤 Caller:
+Wait, sorry to interrupt! Does LangWatch support real-time voice agent monitoring?
+
+[21:09:41] [Turn 3] 🤖 Gemini Live:
+(audio response)
+
+[21:09:53] [Turn 4] 👤 Caller:
+That sounds perfect. Actually, I'm sitting in a pretty busy coffee shop right now, so I'm sorry if it's a bit loud on your end. Could you help me get a demo scheduled for sometime later this week?
+
+[21:09:53] [Turn 4] 🤖 Gemini Live:
+Yes, it does. That feature helps with real-time quality assurance.
+
+============================================================
+Session Finished: 2026-10-11 21:10:15
+Status: FAILED
+Judge Evaluation:
+The assistant failed on two counts: 
+1. It repeated its initial response (technical failure/glitch).
+2. It failed to handle the interruption smoothly; it continued to answer the previous question about real-time monitoring *after* the user had already moved on to asking for a demo, and it did so in a way that ignored the context of the interruption. The assistant's final response was disjointed and did not address the user's request for a demo.
+============================================================

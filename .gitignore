@@ -1,0 +1,28 @@
+# Virtual environments
+.venv/
+env/
+venv/
+
+# External cloned demo repository
+ai-interviewer-scenario-demo/
+
+# Secrets and environment configuration
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python cache and compiled files
+**/__pycache__/
+**/*.py[cod]
+*$py.class
+*.pyd
+
+# Large generated audio recording files
+**/outputs/*.wav
+**/past_outputs/*.wav
+
+# System & IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

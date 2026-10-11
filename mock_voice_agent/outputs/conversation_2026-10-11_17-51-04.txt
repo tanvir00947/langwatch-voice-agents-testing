@@ -1,0 +1,37 @@
+============================================================
+VOICE AGENT CONVERSATION TRANSCRIPT
+Session Started: 2026-10-11 17:51:04
+Audio File: conversation_2026-10-11_17-51-04.wav
+Mode: Real-time turn-by-turn client transcription
+Server sends: Pure Audio only (no server transcript)
+============================================================
+
+[17:51:06] [Turn 1] 👤 Caller:
+please explain langwatch ai
+
+[17:51:34] [Turn 1] 🤖 Agent:
+LangWatch AI is a specialized observability and evaluation platform designed for teams building LLM-powered applications. In simple terms, we help you monitor your AI's performance in real time, catch hallucinations or errors before they reach your users, and provide the analytics you need to continuously improve your prompts and model responses. Think of it as a quality assurance layer that gives you complete visibility into how your AI is behaving, ensuring it stays accurate.
+
+[17:51:34] [Turn 2] 👤 Caller:
+(audio spoken)
+
+[17:51:38] ⚡ [BARGE-IN / INTERRUPTION]: Caller interrupted the agent mid-speech!
+
+[17:51:38] [Turn 3] 👤 Caller:
+(audio spoken)
+
+[17:52:37] [Turn 3] 🤖 Agent:
+Not a problem at all. Please, take your time. Was there something specific about Lang Watch or the demo process you wanted to clarify, or is there another question on your mind? I'm here to help.
+
+[17:52:45] [Turn 4] 👤 Caller:
+Yeah, sorry about that, it's just really loud in here with the espresso machine going off. Anyway, that sounds exactly like what my team needs. How do I go about booking a demo with you guys?
+
+[17:53:05] [Turn 4] 🤖 Agent:
+(audio response)
+
+============================================================
+Session Finished: 2026-10-11 17:53:27
+Status: SUCCESS
+Judge Evaluation:
+The assistant successfully handled the conversation despite the simulated acoustic degradation. It understood the initial request, responded politely and concisely, handled the interruption gracefully, and continued the conversation smoothly. The final response from the assistant (which is the audio response in the transcript) completes the interaction.
+============================================================
