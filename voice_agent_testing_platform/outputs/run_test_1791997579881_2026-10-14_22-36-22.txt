@@ -1,0 +1,52 @@
+============================================================
+VOICE AGENT TEST SESSION: WebSocket Agent: Resilience & Barge-in Test
+Started: 2026-10-14T22:36:22.352555
+Adapter: WebSocketAgentAdapter
+Caller Accent: indian_male | Noise: none
+============================================================
+
+[22:36:30] [0.0s - 2.6s] [Turn 1] 👤 CALLER:
+Hello, can someone help me with my account?
+
+[22:36:43] [2.6s - 9.1s] [Turn 2] 🤖 AGENT (response latency: 6703ms):
+Hello! I can certainly help you with that. To access your account, could you please provide some verification details?
+
+[22:36:52] [9.1s - 12.0s] [Turn 3] 👤 CALLER ⚡ [BARGE-IN / INTERRUPTION]:
+Hello, can someone help me with my account?
+
+[22:36:52] [12.0s - 12.5s] [Turn 4] 🤖 AGENT:
+Hello! I can certainly help you with that. To access your account, could you please provide some verification details?
+
+[22:37:00] [12.5s - 15.3s] [Turn 5] 👤 CALLER:
+Hello, can someone help me with my account?
+
+[22:37:05] [15.3s - 21.9s] [Turn 6] 🤖 AGENT:
+Certainly. To ensure account security, I'll need to verify a few details. What can I help you with today?
+
+[22:37:12] [21.9s - 24.7s] [Turn 7] 👤 CALLER:
+Hello, can someone help me with my account?
+
+[22:37:17] [24.7s - 30.5s] [Turn 8] 🤖 AGENT:
+Certainly. To ensure account security, I'll need to verify a few details. What can I help you with today?I understand. To assist you with your account, please help me by verifying your identity.
+
+[22:37:26] [30.5s - 33.3s] [Turn 9] 👤 CALLER:
+Hello, can someone help me with my account?
+
+[22:37:29] [33.3s - 38.8s] [Turn 10] 🤖 AGENT:
+I understand. To assist you with your account, please help me by verifying your identity.I'd be happy to help you with your account, but I'll need to verify your details first to proceed.
+
+[22:37:35] [38.8s - 41.6s] [Turn 11] 👤 CALLER:
+Hello, can someone help me with my account?
+
+[22:37:42] [41.6s - 47.4s] [Turn 12] 🤖 AGENT:
+I'd be happy to help you with your account, but I'll need to verify your details first to proceed.I understand. To ensure security, could you please provide some verification details?
+
+[22:37:49] [47.4s - 50.2s] [Turn 13] 👤 CALLER:
+Hello, can someone help me with my account?
+
+[22:37:53] [50.2s - 55.8s] [Turn 14] 🤖 AGENT:
+I understand. To ensure security, could you please provide some verification details?Sure, I can certainly help you. For security, please provide some verification details.
+
+[22:38:01] [55.8s - 58.6s] [Turn 15] 👤 CALLER:
+Hello, can someone help me with my account?
+

@@ -1,0 +1,7 @@
+============================================================
+VOICE AGENT TEST SESSION: WebSocket Agent: Resilience & Barge-in Test
+Started: 2026-10-14T22:39:56.437664
+Adapter: WebSocketAgentAdapter
+Caller Accent: indian_male | Noise: none
+============================================================
+

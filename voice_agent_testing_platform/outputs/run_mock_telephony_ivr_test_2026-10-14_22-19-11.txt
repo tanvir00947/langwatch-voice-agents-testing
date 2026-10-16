@@ -1,0 +1,38 @@
+============================================================
+VOICE AGENT TEST SESSION: Telephony IVR Menu & DTMF Tone Verification
+Started: 2026-10-14T22:19:11.809728
+Adapter: MockTelephonyAdapter
+Caller Accent: us_female | Noise: static
+============================================================
+
+[22:19:25] [0.0s - 2.4s] [Turn 1] 👤 CALLER:
+(Listening to IVR Greeting)
+
+[22:19:42] [2.4s - 8.0s] [Turn 2] 🤖 AGENT (response latency: 125ms):
+Thank you for calling Acme Customer Care. Press 1 for Support, or press 2 for Sales.
+
+[22:19:42] [8.0s - 8.3s] [Turn 3] 👤 CALLER 📞 [KEYPAD DTMF: 1]:
+[DTMF 1]
+
+[22:19:53] [8.3s - 11.8s] [Turn 4] 🤖 AGENT (response latency: 141ms):
+You have reached Technical Support. How can we help you today?
+
+[22:20:02] [11.8s - 14.9s] [Turn 5] 👤 CALLER:
+Hi, I would like to check my account status.
+
+[22:20:23] [14.9s - 22.3s] [Turn 6] 🤖 AGENT (response latency: 141ms):
+Your account is active and in good standing. We have resolved your inquiry. Can I help you with anything else today?
+
+
+============================================================
+EVALUATION RESULT: PASSED
+Total Call Duration: 22.3s
+Average Response Latency: 135.7ms
+Overall Metric Score: 99.0/100
+  • Comprehension Under Noise: 100.0/100
+  • Regional Accent Handling: 100.0/100
+  • Politeness & Tone: 95.0/100
+  • Interruption Recovery: 100.0/100
+Judge Reasoning:
+The AI Voice Agent successfully executed all required tasks during the call. First, it delivered a clear telephone greeting outlining the menu options (Criteria 1). Second, when the caller pressed DTMF '1', the system correctly captured the signal and routed the call to Technical Support without error (Criteria 2). Third, when the caller asked to check their account status, the agent promptly and accurately provided the account status ('active and in good standing') and offered further assistance (Criteria 3). Under the static background noise and US female accent test conditions, the agent performed exceptionally well with zero comprehension errors or latency issues. Goal completion was 100% as the caller's query was fully resolved.
+============================================================

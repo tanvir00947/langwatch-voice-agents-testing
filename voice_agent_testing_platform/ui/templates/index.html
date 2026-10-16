@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Agent & IVA Testing Platform</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-icon">🎙️</div>
+      <div>
+        <h1>Voice Agent & IVA Testing Platform</h1>
+        <p class="subtitle">Generic Multi-Protocol Voice Testing • WebSocket & Telephony (Twilio / Telnyx / Mock)</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="status-pill status-ready" id="connectionStatus">● Live WebSocket Connected</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="app-layout">
+    <!-- Left Sidebar: Configuration Panel -->
+    <aside class="config-panel">
+      <div class="panel-header">
+        <h2>🛠️ Test Configuration</h2>
+        <span class="badge">QA Tester Mode</span>
+      </div>
+
+      <div class="form-group">
+        <label for="presetSelect">Scenario Preset</label>
+        <select id="presetSelect" class="form-control">
+          <option value="">-- Choose a Preset Scenario --</option>
+          {% for p in presets %}
+          <option value="{{ p.id }}">{{ p.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="scenarioName">Scenario Name</label>
+        <input type="text" id="scenarioName" class="form-control" value="Voice Agent Quality & Resilience Test">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-half">
+          <label for="adapterType">SUT Adapter</label>
+          <select id="adapterType" class="form-control">
+            <option value="websocket" selected>WebSocket (Audio Stream)</option>
+            <option value="mock_telephony">Mock Telephony (Zero-Cost Local)</option>
+            <option value="twilio">Twilio Media Stream</option>
+            <option value="telnyx">Telnyx Media Stream</option>
+          </select>
+        </div>
+        <div class="form-group col-half">
+          <label for="targetUrl">Target URL / Host</label>
+          <input type="text" id="targetUrl" class="form-control" value="ws://127.0.0.1:8765">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-half">
+          <label for="callerType">Caller Mode</label>
+          <select id="callerType" class="form-control">
+            <option value="scripted" selected>Scripted Sequence</option>
+            <option value="dynamic">Autonomous AI Persona</option>
+          </select>
+        </div>
+        <div class="form-group col-half">
+          <label for="callerAccent">Caller Accent</label>
+          <select id="callerAccent" class="form-control">
+            {% for key, val in accents.items() %}
+            <option value="{{ key }}" {% if key == 'indian_male' %}selected{% endif %}>{{ val.label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-half">
+          <label for="backgroundNoise">Background Noise</label>
+          <select id="backgroundNoise" class="form-control">
+            <option value="none">None (Clean Audio)</option>
+            <option value="cafe" selected>Cafe Ambient Chatter</option>
+            <option value="office">Office Air / Murmur</option>
+            <option value="static">Phone Line Static</option>
+          </select>
+        </div>
+        <div class="form-group col-half">
+          <label for="noiseVolume">Noise Volume</label>
+          <input type="range" id="noiseVolume" min="0" max="0.5" step="0.05" value="0.15" class="range-slider">
+          <span class="range-label" id="noiseVolumeLabel">15%</span>
+        </div>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" id="telephonyFilter" checked>
+        <label for="telephonyFilter">Apply Telephony Bandpass Filter (300Hz - 3.4kHz)</label>
+      </div>
+
+      <!-- Scripted Mode Editor -->
+      <div id="scriptedSection">
+        <label>Scripted Steps (JSON / Turns)</label>
+        <textarea id="scriptText" class="form-control code-editor" rows="6">
+[
+  {"action": "say", "text": "Hello? Can someone explain what your voice platform does, and why it's so expensive?"},
+  {"action": "interrupt", "text": "Wait, hold on a second! Does your platform even support real-time voice evaluations?"},
+  {"action": "say", "text": "Alright, that sounds reasonable. Can I test this with a live demo this week?"}
+]
+        </textarea>
+      </div>
+
+      <!-- Dynamic Mode Editor -->
+      <div id="dynamicSection" style="display: none;">
+        <div class="form-group">
+          <label for="dynamicPersona">Caller Persona</label>
+          <input type="text" id="dynamicPersona" class="form-control" value="An impatient enterprise customer asking demanding questions.">
+        </div>
+        <div class="form-group">
+          <label for="dynamicGoal">Caller Goal</label>
+          <input type="text" id="dynamicGoal" class="form-control" value="Challenge their latency claims and request to schedule a live demo.">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="criteriaText">LLM Judge Evaluation Criteria</label>
+        <textarea id="criteriaText" class="form-control" rows="4">
+- Assistant understood caller inquiries despite background noise and accent
+- Assistant responded politely, naturally, and concisely
+- When interrupted mid-conversation, assistant recovered smoothly
+- Assistant addressed skepticism and helped schedule a live demo
+        </textarea>
+      </div>
+
+      <button id="runBtn" class="btn btn-primary btn-block">
+        <span class="btn-icon">▶</span> Run Test Scenario
+      </button>
+    </aside>
+
+    <!-- Right Content Area: Monitor & Results -->
+    <main class="main-content">
+      <!-- Status Card -->
+      <div class="status-card" id="statusCard">
+        <div class="status-indicator">
+          <span class="status-dot ready"></span>
+          <span class="status-text" id="statusMessage">Platform Ready. Select a scenario and click Run.</span>
+        </div>
+        <div class="status-actions">
+          <span id="testDuration" class="time-label">00:00</span>
+        </div>
+      </div>
+
+      <!-- Scorecard & Metrics Section -->
+      <div class="scorecard-grid" id="scorecardSection" style="display: none;">
+        <div class="metric-card score-main">
+          <span class="metric-title">Overall Score</span>
+          <div class="score-display">
+            <span class="score-number" id="overallScoreVal">--</span>
+            <span class="score-max">/100</span>
+          </div>
+          <span class="score-badge" id="passFailBadge">PASSED</span>
+        </div>
+
+        <div class="metric-card dimensions">
+          <span class="metric-title">Evaluation Dimensions</span>
+          <div class="dim-row">
+            <span class="dim-label">🛡️ Noise Comprehension:</span>
+            <div class="progress-bar"><div class="progress-fill" id="noiseMeter" style="width: 0%"></div></div>
+            <span class="dim-val" id="noiseVal">--</span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">🗣️ Accent Handling:</span>
+            <div class="progress-bar"><div class="progress-fill" id="accentMeter" style="width: 0%"></div></div>
+            <span class="dim-val" id="accentVal">--</span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">🤝 Politeness & Tone:</span>
+            <div class="progress-bar"><div class="progress-fill" id="politenessMeter" style="width: 0%"></div></div>
+            <span class="dim-val" id="politenessVal">--</span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">⚡ Interruption Recovery:</span>
+            <div class="progress-bar"><div class="progress-fill" id="recoveryMeter" style="width: 0%"></div></div>
+            <span class="dim-val" id="recoveryVal">--</span>
+          </div>
+          <div class="dim-row">
+            <span class="dim-label">🎯 Goal Completion:</span>
+            <div class="progress-bar"><div class="progress-fill" id="goalMeter" style="width: 0%"></div></div>
+            <span class="dim-val" id="goalVal">--</span>
+          </div>
+        </div>
+
+        <div class="metric-card telemetry">
+          <span class="metric-title">Telemetry & Deterministic</span>
+          <div class="telemetry-item">
+            <span>Avg Response Latency:</span>
+            <strong id="avgLatencyVal">-- ms</strong>
+          </div>
+          <div class="telemetry-item">
+            <span>Barge-in Handled:</span>
+            <strong id="bargeInVal">--</strong>
+          </div>
+          <div class="telemetry-item">
+            <span>DTMF Handled:</span>
+            <strong id="dtmfVal">--</strong>
+          </div>
+          <div class="telemetry-item">
+            <span>Keywords Verified:</span>
+            <strong id="keywordsVal">--</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Waveform Interactive Audio Studio -->
+      <div class="audio-studio-card" id="audioCard" style="display: none;">
+        <div class="studio-header">
+          <div class="studio-title-group">
+            <h3>🎧 Synchronized Dual-Track Audio Studio</h3>
+            <span class="studio-desc">Multi-track waveform inspection (Caller vs Agent) with auto-scrolling live transcript</span>
+          </div>
+          <div class="studio-actions">
+            <a id="downloadAudioBtn" class="download-link" href="#" download>Download Stereo WAV</a>
+          </div>
+        </div>
+
+        <!-- Waveform Studio Tracks -->
+        <div class="waveform-container">
+          <!-- Track 1: Caller / Adversarial Agent -->
+          <div class="waveform-track track-caller">
+            <div class="track-info">
+              <span class="track-badge caller-badge">👤 Adversarial Caller</span>
+              <span class="track-tag" id="callerTrackTag">Audio Track 1</span>
+            </div>
+            <div class="canvas-wrapper" id="callerCanvasWrapper">
+              <canvas id="callerWaveformCanvas" height="60"></canvas>
+              <div class="playback-cursor" id="callerCursor"></div>
+            </div>
+          </div>
+
+          <!-- Track 2: Agent Under Test -->
+          <div class="waveform-track track-agent">
+            <div class="track-info">
+              <span class="track-badge agent-badge">🤖 Voice Agent Under Test</span>
+              <span class="track-tag" id="agentTrackTag">Audio Track 2</span>
+            </div>
+            <div class="canvas-wrapper" id="agentCanvasWrapper">
+              <canvas id="agentWaveformCanvas" height="60"></canvas>
+              <div class="playback-cursor" id="agentCursor"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Playback Control Toolbar -->
+        <div class="studio-controls">
+          <button id="playPauseBtn" class="btn-ctrl btn-play" title="Play / Pause">
+            <span id="playIcon">▶</span>
+          </button>
+          <button id="rewindBtn" class="btn-ctrl-sub" title="Rewind 5s">⏪ 5s</button>
+          <button id="forwardBtn" class="btn-ctrl-sub" title="Forward 5s">⏩ 5s</button>
+          
+          <div class="time-readout">
+            <span id="currentTimeDisplay">00:00.0</span> / <span id="totalTimeDisplay">00:00.0</span>
+          </div>
+
+          <!-- Scrubbing Bar -->
+          <div class="scrub-container" id="scrubContainer">
+            <div class="scrub-track">
+              <div class="scrub-progress" id="scrubProgress"></div>
+              <div class="scrub-thumb" id="scrubThumb"></div>
+            </div>
+          </div>
+
+          <div class="speed-control">
+            <label for="playbackSpeedSelect">Speed:</label>
+            <select id="playbackSpeedSelect" class="form-control-sm">
+              <option value="0.75">0.75x</option>
+              <option value="1.0" selected>1.0x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
+            </select>
+          </div>
+        </div>
+
+        <audio id="audioPlayer" preload="auto" style="display: none;"></audio>
+      </div>
+
+      <!-- Live Transcript & Turn Feed -->
+      <div class="transcript-panel">
+        <div class="transcript-header">
+          <h3>💬 Live Conversation Feed</h3>
+          <span class="turn-count" id="turnCount">0 turns</span>
+        </div>
+        <div class="feed-container" id="feedContainer">
+          <div class="empty-state" id="emptyFeedState">
+            <p>No active conversation yet. Launch a test to see live audio turns and transcripts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Judge Reasoning Card -->
+      <div class="reasoning-card" id="reasoningCard" style="display: none;">
+        <h3>⚖️ LLM Judge Detailed Reasoning</h3>
+        <div class="reasoning-content" id="reasoningText"></div>
+      </div>
+
+      <!-- Past Runs History -->
+      <div class="history-card">
+        <h3>📋 Past Test Runs</h3>
+        <div class="history-list" id="historyList">
+          <div class="empty-state"><p>Loading historical test runs...</p></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
+

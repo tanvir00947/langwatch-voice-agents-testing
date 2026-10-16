@@ -1,0 +1,100 @@
+{
+  "scenario_id": "mock_telephony_ivr_test",
+  "scenario_name": "Telephony IVR Menu & DTMF Tone Verification",
+  "success": false,
+  "status": "failed",
+  "turns": [
+    {
+      "turn_index": 1,
+      "timestamp": "21:58:33",
+      "role": "caller",
+      "text": "(Listening to IVR Greeting)",
+      "audio_data": null,
+      "audio_duration": 2.6,
+      "latency_ms": null,
+      "is_interruption": false,
+      "dtmf_digits": null,
+      "metadata": {}
+    },
+    {
+      "turn_index": 2,
+      "timestamp": "21:58:44",
+      "role": "agent",
+      "text": "Thank you for calling Acme Customer Care. Press 1 for Support, or press 2 for Sales.",
+      "audio_data": null,
+      "audio_duration": 5.88,
+      "latency_ms": 140.99999994505197,
+      "is_interruption": false,
+      "dtmf_digits": null,
+      "metadata": {}
+    },
+    {
+      "turn_index": 3,
+      "timestamp": "21:58:44",
+      "role": "caller",
+      "text": "[DTMF 1]",
+      "audio_data": null,
+      "audio_duration": 0.3,
+      "latency_ms": null,
+      "is_interruption": false,
+      "dtmf_digits": "1",
+      "metadata": {}
+    },
+    {
+      "turn_index": 4,
+      "timestamp": "21:58:51",
+      "role": "agent",
+      "text": "You have reached Technical Support. How can we help you today?",
+      "audio_data": null,
+      "audio_duration": 3.32,
+      "latency_ms": 125.0,
+      "is_interruption": false,
+      "dtmf_digits": null,
+      "metadata": {}
+    },
+    {
+      "turn_index": 5,
+      "timestamp": "21:58:58",
+      "role": "caller",
+      "text": "Hi, I would like to check my account status.",
+      "audio_data": null,
+      "audio_duration": 2.72,
+      "latency_ms": null,
+      "is_interruption": false,
+      "dtmf_digits": null,
+      "metadata": {}
+    },
+    {
+      "turn_index": 6,
+      "timestamp": "21:59:07",
+      "role": "agent",
+      "text": "You have reached Technical Support. How can we help you today?",
+      "audio_data": null,
+      "audio_duration": 3.32,
+      "latency_ms": 140.99999994505197,
+      "is_interruption": false,
+      "dtmf_digits": null,
+      "metadata": {}
+    }
+  ],
+  "deterministic_metrics": {
+    "avg_latency_ms": 135.7,
+    "min_latency_ms": 125.0,
+    "max_latency_ms": 141.0,
+    "total_turns": 6,
+    "total_duration_seconds": 18.14,
+    "barge_in_tested": false,
+    "barge_in_successful": false,
+    "dtmf_tested": true,
+    "dtmf_matched": true,
+    "keywords_matched": true,
+    "unmatched_keywords": []
+  },
+  "metric_scores": null,
+  "judge_reasoning": "Evaluation execution failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}",
+  "audio_file_path": "C:\\Users\\tanvi\\OneDrive\\Desktop\\langwatch Demo\\voice_agent_testing_platform\\outputs\\run_mock_telephony_ivr_test_2026-10-14_21-58-25.wav",
+  "transcript_file_path": "C:\\Users\\tanvi\\OneDrive\\Desktop\\langwatch Demo\\voice_agent_testing_platform\\outputs\\run_mock_telephony_ivr_test_2026-10-14_21-58-25.txt",
+  "started_at": "2026-10-14T21:58:25.941002",
+  "finished_at": "2026-10-14T21:59:07.549046",
+  "error_message": null
+}

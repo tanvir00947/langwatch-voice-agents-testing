@@ -1,0 +1,72 @@
+[
+  {
+    "model": "models/gemini-2.5-flash",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}"
+  },
+  {
+    "model": "models/gemini-2.5-pro",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-pro is no longer available to new users. Please update your code to use models/gemini-3.1-pro-preview for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}"
+  },
+  {
+    "model": "models/gemini-2.5-flash-preview-tts",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Model tried to generate text, but it should only be used for TTS. Make sure your instructions are clear to only generate audio from a given text transcript.', 'status': 'INVALID_ARGUMENT'}}"
+  },
+  {
+    "model": "models/gemini-2.5-pro-preview-tts",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_to"
+  },
+  {
+    "model": "models/gemma-4-26b-a4b-it",
+    "category": "text generation",
+    "status": "WORKED",
+    "method": "models.generate_content",
+    "details": "One-token response request completed."
+  },
+  {
+    "model": "models/gemma-4-31b-it",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ServerError: 500 INTERNAL. {'error': {'code': 500, 'message': 'Internal error encountered.', 'status': 'INTERNAL'}}"
+  },
+  {
+    "model": "models/gemini-flash-latest",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  },
+  {
+    "model": "models/gemini-flash-lite-latest",
+    "category": "text generation",
+    "status": "WORKED",
+    "method": "models.generate_content",
+    "details": "One-token response request completed."
+  },
+  {
+    "model": "models/gemini-pro-latest",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_to"
+  },
+  {
+    "model": "models/gemini-2.5-flash-lite",
+    "category": "model-specific",
+    "status": "FAILED",
+    "method": "modality-specific probe",
+    "details": "ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}"
+  }
+]

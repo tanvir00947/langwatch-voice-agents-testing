@@ -1,0 +1,38 @@
+============================================================
+VOICE AGENT TEST SESSION: Telephony IVR Menu & DTMF Tone Verification
+Started: 2026-10-14T22:17:04.457242
+Adapter: MockTelephonyAdapter
+Caller Accent: us_female | Noise: static
+============================================================
+
+[22:17:14] [0.0s - 2.1s] [Turn 1] 👤 CALLER:
+(Listening to IVR Greeting)
+
+[22:17:26] [2.1s - 7.7s] [Turn 2] 🤖 AGENT (response latency: 125ms):
+Thank you for calling Acme Customer Care. Press 1 for Support, or press 2 for Sales.
+
+[22:17:26] [7.7s - 8.0s] [Turn 3] 👤 CALLER 📞 [KEYPAD DTMF: 1]:
+[DTMF 1]
+
+[22:17:36] [8.0s - 11.3s] [Turn 4] 🤖 AGENT (response latency: 125ms):
+You have reached Technical Support. How can we help you today?
+
+[22:18:10] [11.3s - 14.0s] [Turn 5] 👤 CALLER:
+Hi, I would like to check my account status.
+
+[22:18:25] [14.0s - 18.1s] [Turn 6] 🤖 AGENT (response latency: 125ms):
+You have reached Technical Support. How can we help you today?
+
+
+============================================================
+EVALUATION RESULT: FAILED
+Total Call Duration: 18.1s
+Average Response Latency: 125.0ms
+Overall Metric Score: 78.0/100
+  • Comprehension Under Noise: 100.0/100
+  • Regional Accent Handling: 100.0/100
+  • Politeness & Tone: 70.0/100
+  • Interruption Recovery: 100.0/100
+Judge Reasoning:
+The AI greeting was clear and professional, and it correctly captured the user's DTMF press (1) to route them to Technical Support. However, when the user stated they wanted to check their account status, the agent failed to address the query or transfer the call to the appropriate department, instead looping and repeating the exact same greeting prompt ('You have reached Technical Support. How can we help you today?'). This represents a clear failure in conversation state management and goal completion.
+============================================================

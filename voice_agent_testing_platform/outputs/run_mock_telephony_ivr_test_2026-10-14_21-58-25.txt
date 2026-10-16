@@ -1,0 +1,32 @@
+============================================================
+VOICE AGENT TEST SESSION: Telephony IVR Menu & DTMF Tone Verification
+Started: 2026-10-14T21:58:25.941002
+Adapter: MockTelephonyAdapter
+Caller Accent: us_female | Noise: static
+============================================================
+
+[21:58:33] [Turn 1] 👤 CALLER:
+(Listening to IVR Greeting)
+
+[21:58:44] [Turn 2] 🤖 AGENT (response latency: 141ms):
+Thank you for calling Acme Customer Care. Press 1 for Support, or press 2 for Sales.
+
+[21:58:44] [Turn 3] 👤 CALLER 📞 [KEYPAD DTMF: 1]:
+[DTMF 1]
+
+[21:58:51] [Turn 4] 🤖 AGENT (response latency: 125ms):
+You have reached Technical Support. How can we help you today?
+
+[21:58:58] [Turn 5] 👤 CALLER:
+Hi, I would like to check my account status.
+
+[21:59:07] [Turn 6] 🤖 AGENT (response latency: 141ms):
+You have reached Technical Support. How can we help you today?
+
+
+============================================================
+EVALUATION RESULT: FAILED
+Average Response Latency: 135.7ms
+Judge Reasoning:
+Evaluation execution failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).', 'status': 'NOT_FOUND'}}
+============================================================
